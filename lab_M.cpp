@@ -4,7 +4,7 @@ using namespace std;
 
 class Movie
 {
-public:
+private:
     int id;
     string title;
     int ranking;
@@ -12,24 +12,52 @@ public:
     int character_number;
     string comment;
     int ticket_price;
-
+public:
+    getId()
+    {
+        return id;
+    }
+    getTitle()
+    {
+        return title;
+    }
+    getRanking()
+    {
+        return ranking;
+    }
+    getRelease_date() 
+    {
+        return release_date;
+    }
+    getCharacter_number()
+    {
+        return character_number;
+    }
+    getComment()
+    {
+        return comment;
+    }
+    getTicket_price()
+    {
+        return ticket_price;
+    }
     //Конструктор
     Movie()
     {
     }
-    Movie(int Id, string Title, int Ranking, int Release_date, int Character_number, string Comment, int Ticket_price)
+    Movie(int id, string title, int ranking, int release_date, int character_number, string comment, int ticket_price)
     {
-        id = Id;
-        title = Title;
-        ranking = Ranking;
-        release_date = Release_date;
-        character_number = Character_number;
-        comment = Comment;
-        ticket_price = Ticket_price;
+        id = id;
+        title = title;
+        ranking = ranking;
+        release_date = release_date;
+        character_number = character_number;
+        comment = comment;
+        ticket_price = ticket_price;
     }
 
 
-    void print_1()
+    void printMovieDataInConsole()
     {
         cout << "\nId -- " << id << endl;
         cout << "   Title -- " << title << endl;
@@ -50,19 +78,19 @@ public:
     Movie arr2[1];
     int NumberOfMovies = 0;
 
-    Cinema(string Name, string Location)
+    Cinema(string name, string location)
     {
-        name = Name;
-        location = Location;
+        name = name;
+        location = location;
     }
 
-    void MovieAdd(Movie Movie_)
+    void movieAdd(Movie movie)
     {
-        arr[NumberOfMovies] = Movie_;
+        arr[NumberOfMovies] = movie;
         NumberOfMovies++;
     }
 
-    void SeeAllBook_ByYear()
+    void seeAllBookByYear()
     {
         for (int i = 1; i < NumberOfMovies; i++)
         {
@@ -80,17 +108,17 @@ public:
         cout << "------------------------------------------------Sort By Year-----------------------------------------------------------" << endl;
         for (int i = 0; i < NumberOfMovies; i++)
         {
-            arr[i].print_1();
+            arr[i].printMovieDataInConsole();
         }
     }
 };
 
-enum type {
-    Action = 1,
-    Comedy,
-    Drama,
-    Fantasy,
-    All
+enum Type {
+    ACTION = 1;
+    COMEDY,
+    DRAMA,
+    FANTASY,
+    ALL
 };
 
 
@@ -98,11 +126,11 @@ int main()
 {
 
 
-    type action = Action;
-    type comedy = Comedy;
-    type drama = Drama;
-    type fantasy = Fantasy;
-    type all = All;
+    Type action = ACTION;
+    Type comedy = COMEDY;
+    Type drama = DRAMA;
+    Type fantasy = FANTASY;
+    Type all = ALL;
 
     int choose;
     cout << "\n Action - 1";
@@ -116,73 +144,63 @@ int main()
 
 
     if (choose == action) {
-        Movie a(1, "Titan", 9, 2022, 1, "omg", 33);
-        a.print_1();
-        Movie a_1(10, "Wolf", 6, 2023, 10, "omg!!", 330);
-        a_1.print_1();
+        Movie First_Movie_Action(1, "Titan", 9, 2022, 1, "omg", 33);
+        First_Movie_Action.printMovieDataInConsole();
+        Movie Second_Movie_Action(10, "Wolf", 6, 2023, 10, "omg!!", 330);
+        Second_Movie_Action.printMovieDataInConsole();
 
-        Cinema cinema_action("BestName", "InTheMiddleOfNowhere");
-        cinema_action.MovieAdd(a);
-        cinema_action.MovieAdd(a_1);
-        cinema_action.SeeAllBook_ByYear();
+        Cinema cinema_action();
+        cinema_action.movieAdd(First_Movie_Action);
+        cinema_action.movieAdd(Second_Movie_Action);
+        cinema_action.seeAllBookByYear();
 
     }
     else if (choose == comedy) {
-        Movie b(2, "Tools", 5, 2021, 2, "ohhhh", 433);
-        b.print_1();
-        Movie b1(21, "Big Mom", 10, 1998, 6, "amazing!", 200);
-        b1.print_1();
+        Movie First_Movie_Comedy(2, "Tools", 5, 2021, 2, "ohhhh", 433);
+        First_Movie_Comedy.printMovieDataInConsole();
+        Movie Second_Movie_Comedy(21, "Big Mom", 10, 1998, 6, "amazing!", 200);
+        Second_Movie_Comedy.printMovieDataInConsole();
 
-        Cinema cinema_action("BestName", "InTheMiddleOfNowhere");
-        cinema_action.MovieAdd(b);
-        cinema_action.MovieAdd(b1);
-        cinema_action.SeeAllBook_ByYear();
+        Cinema cinema_action();
+        cinema_action.movieAdd(First_Movie_Comedy);
+        cinema_action.movieAdd(Second_Movie_Comedy);
+        cinema_action.seeAllBookByYear();
 
     }
     else if (choose == drama) {
-        Movie c(3, "Time", 10, 2020, 3, "perfect", 333);
-        c.print_1();
-        Movie c1(3, "Wast Time", 17, 2021, 6, "------", 333);
-        c1.print_1();
+        Movie First_Movie_Drama(3, "Time", 10, 2020, 3, "perfect", 333);
+        First_Movie_Drama.printMovieDataInConsole();
+        Movie Second_Movie_Drama(3, "Wast Time", 17, 2021, 6, "------", 333);
+        Second_Movie_Drama.printMovieDataInConsole();
 
-        Cinema cinema_action("BestName", "InTheMiddleOfNowhere");
-        cinema_action.MovieAdd(c);
-        cinema_action.MovieAdd(c1);
-        cinema_action.SeeAllBook_ByYear();
+        Cinema cinema_action();
+        cinema_action.movieAdd(First_Movie_Drama);
+        cinema_action.movieAdd(Second_Movie_Drama);
+        cinema_action.seeAllBookByYear();
     }
     else if (choose == fantasy) {
-        Movie p(4, "Lucky", 10, 2007, 4, "WOW!!!", 346);
-        p.print_1();
-        Movie p1(18, "18", 18, 2008, 18, "WOW!!!", 180);
-        p1.print_1();
+        Movie First_Movie_Fantasy(4, "Lucky", 10, 2007, 4, "WOW!!!", 346);
+        First_Movie_Fantasy.printMovieDataInConsole();
+        Movie Second_Movie_Fantasy(18, "18", 18, 2008, 18, "Masterpiece!!!", 180);
+        Second_Movie_Fantasy.printMovieDataInConsole();
 
-        Cinema cinema_action("BestName", "InTheMiddleOfNowhere");
-        cinema_action.MovieAdd(p);
-        cinema_action.MovieAdd(p1);
-        cinema_action.SeeAllBook_ByYear();
+        Cinema cinema_action();
+        cinema_action.movieAdd(First_Movie_Fantasy);
+        cinema_action.movieAdd(Second_Movie_Fantasy);
+        cinema_action.seeAllBookByYear();
     }
     else if (choose == all) {
 
-        Movie a(1, "Titan", 9, 2022, 1, "omg", 33);
-        Movie a_1(10, "Wolf", 6, 2023, 10, "omg!!", 330);
-        Movie b(2, "Tools", 5, 2021, 2, "ohhhh", 433);
-        Movie b1(21, "Big Mom", 10, 1998, 6, "amazing!", 200);
-        Movie c(3, "Time", 10, 2022, 3, "perfect", 333);
-        Movie c1(3, "Wast Time", 17, 2021, 6, "------", 333);
-        Movie p(4, "Lucky", 10, 2005, 4, "WOW!!!", 346);
-        Movie p1(18, "18", 18, 2005, 18, "WOW!!!", 180);
-
-
-        Cinema cinema("BestName", "InTheMiddleOfNowhere");
-        cinema.MovieAdd(a);
-        cinema.MovieAdd(b);
-        cinema.MovieAdd(c);
-        cinema.MovieAdd(p);
-        cinema.MovieAdd(a_1);
-        cinema.MovieAdd(b1);
-        cinema.MovieAdd(c1);
-        cinema.MovieAdd(p1);
-        cinema.SeeAllBook_ByYear();
+        Cinema cinema();
+        cinema.movieAdd(First_Movie_Action);
+        cinema.movieAdd(Second_Movie_Action);
+        cinema.movieAdd(First_Movie_Comedy);
+        cinema.movieAdd(Second_Movie_Comedy);
+        cinema.movieAdd(First_Movie_Drama);
+        cinema.movieAdd(Second_Movie_Drama);
+        cinema.movieAdd(First_Movie_Fantasy);
+        cinema.movieAdd(Second_Movie_Fantasy);
+        cinema.seeAllBookByYear();
     }
 
     return 0;
