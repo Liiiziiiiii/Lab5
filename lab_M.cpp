@@ -59,7 +59,7 @@ public:
 
     void printMovieDataInConsole()
     {
-        cout << "\nId -- " << id << endl;
+        cout << "\n Id -- " << id << endl;
         cout << "   Title -- " << title << endl;
         cout << "   Ranking -- " << ranking << endl;
         cout << "   Release date --" << release_date << endl;
